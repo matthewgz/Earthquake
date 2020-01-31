@@ -1,13 +1,20 @@
 const path = require("path");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require("webpack");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: {
+    app: path.resolve(__dirname, "src/index.js")
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: "http://localhost:8080/",
+    chunkFilename: "js/[id].[chunkhash].js"
   },
+  mode: "development",
   devServer: {
     open: true,
     hot: true,
@@ -23,6 +30,15 @@ module.exports = {
         exclude: /node_modules/,
         use: {
           loader: "babel-loader"
+        }
+      },
+      {
+        test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/i,
+        use: {
+          loader: "file-loader",
+          options: {
+            outputPath: "assets/"
+          }
         }
       },
       {
@@ -46,9 +62,10 @@ module.exports = {
     ]
   },
   plugins: [
+    new Dotenv(),
+    new webpack.HotModuleReplacementPlugin(),
     new HtmlWebPackPlugin({
-      template: "./public/index.html",
-      filename: "./index.html"
+      template: "./public/index.html"
     }),
     new MiniCssExtractPlugin({
       filename: "assets/[name].css"
