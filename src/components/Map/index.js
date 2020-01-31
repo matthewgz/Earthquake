@@ -14,8 +14,8 @@ export const Container = styled.div`
 
 export const Map = ({ array }) => {
   const [latLng] = useState({
-    lat: -13.194112449845052,
-    lng: -75.98233531402565
+    lat: 16.767777,
+    lng: 4.058837
   });
 
   return (
@@ -31,7 +31,7 @@ export const Map = ({ array }) => {
             disableDefaultUI: true,
             zoomControl: true
           }}
-          zoom={2}
+          zoom={3}
           center={latLng}
         >
           {array.map(item => (
