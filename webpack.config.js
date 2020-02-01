@@ -34,8 +34,13 @@ module.exports = {
       },
       {
         test: /\.js$/,
-        use: "babel-loader",
-        exclude: /node_modules/
+        exclude: /node_modules/,
+        use: {
+          loader: "babel-loader",
+          options: {
+            plugins: ["babel-plugin-styled-components"]
+          }
+        }
       }
     ]
   },
