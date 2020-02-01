@@ -1,8 +1,9 @@
 import { createGlobalStyle } from "styled-components";
+// @import url('https://fonts.googleapis.com/css?family=Baloo+Thambi|BioRhyme+Expanded:200,300,400,700,800|Molle:400i|Rhodium+Libre&display=swap');
+// @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
 
 export const GlobalStyle = createGlobalStyle`
-@import url('https://fonts.googleapis.com/css?family=Baloo+Thambi|BioRhyme+Expanded:200,300,400,700,800|Molle:400i|Rhodium+Libre&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+
   html {
     box-sizing: border-box;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -19,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     padding: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    font-family: 'Montserrat', sans-serif,-apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
     -webkit-font-smoothing: antialiased;

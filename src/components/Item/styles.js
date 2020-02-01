@@ -23,15 +23,19 @@ export const Tooltip = styled.div`
   padding: 5px;
   border-radius: 10px;
   width: auto;
-  /* display: none; */
-  visibility: visible;
+  visibility: hidden;
   background-color: lightgrey;
   opacity: 0;
   transition: opacity 0.5s ease;
+  font-size: 10px;
   position: absolute;
-  font-size: 12px;
   top: -25px;
   left: 0;
+  &:hover {
+    transition: opacity 0.5s ease;
+    opacity: 1;
+    visibility: visible;
+  }
 `;
 
 export const Title = styled.div`
@@ -49,8 +53,6 @@ export const Title = styled.div`
     position: relative;
     font-size: 16px;
 
-    /* border: 1px solid red; */
-
     &::after {
       content: "...";
       background: white;
@@ -61,7 +63,6 @@ export const Title = styled.div`
       width: 22px;
       height: 30px;
       pointer-events: initial;
-      /* border: 1px solid green; */
       text-align: center;
     }
 
