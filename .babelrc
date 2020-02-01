@@ -6,8 +6,8 @@
       {
         "ssr": false,
         "displayName": true,
-        "minify": false,
-        "transpileTemplateLiterals": false
+        "minify": true,
+        "transpileTemplateLiterals": true
       }
     ]
   ]
