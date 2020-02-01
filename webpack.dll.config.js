@@ -7,6 +7,11 @@ module.exports = {
     modules: ["react", "react-dom", "styled-components"]
   },
   mode: "production",
+  resolve: {
+    alias: {
+      "styled-components": require.resolve("styled-components")
+    }
+  },
   optimization: {
     minimizer: [new TersetJSPlugin()]
   },

@@ -19,6 +19,11 @@ module.exports = {
   optimization: {
     minimizer: [new TersetJSPlugin()]
   },
+  resolve: {
+    alias: {
+      "styled-components": require.resolve("styled-components")
+    }
+  },
   module: {
     rules: [
       {
