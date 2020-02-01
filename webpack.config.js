@@ -16,13 +16,8 @@ module.exports = {
     publicPath: "https://matthewgz.github.io/Earthquake/",
     chunkFilename: "js/[id].[chunkhash].js"
   },
-  // optimization: {
-  //   minimizer: [new TersetJSPlugin()]
-  // },
-  resolve: {
-    alias: {
-      "styled-components": path.resolve("./node_modules/styled-components")
-    }
+  optimization: {
+    minimizer: [new TersetJSPlugin()]
   },
   module: {
     rules: [
