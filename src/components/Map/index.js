@@ -1,22 +1,28 @@
-import React, { useState } from "react";
-import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
+import React, { useState, useContext } from "react";
+import {
+  GoogleMap,
+  LoadScript,
+  Marker,
+  InfoWindow
+} from "@react-google-maps/api";
 import Sismo from "../../assets/images/sismo.svg";
+import { Item } from "../Item";
+import { Container } from "./styles";
+import { Context } from "../../Context";
 // import IconSismo from "../IconSismo";
 
 const { REACT_APP_MAPS_KEY } = process.env;
-
-import styled from "styled-components";
-
-export const Container = styled.div`
-  width: 100%;
-  border: 1px solid lightgrey;
-`;
 
 export const Map = ({ array }) => {
   const [latLng] = useState({
     lat: 16.767777,
     lng: 4.058837
   });
+  const { info, onClick, handleClick, setOnClick } = useContext(Context);
+
+  const handleOnCloseInfo = () => {
+    setOnClick(false);
+  };
 
   return (
     <Container>
@@ -43,9 +49,14 @@ export const Map = ({ array }) => {
                 lng: item.geometry.coordinates[0]
               }}
               icon={Sismo}
-              // animation={}
+              onClick={e => handleClick(e, item)}
             />
           ))}
+          {onClick && (
+            <InfoWindow onCloseClick={handleOnCloseInfo} position={info.latLng}>
+              {info.item && <Item {...info.item} />}
+            </InfoWindow>
+          )}
         </GoogleMap>
       </LoadScript>
     </Container>

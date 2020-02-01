@@ -9,11 +9,17 @@
     "build:dev": "webpack-dev-server --config ./webpack.dev.config.js",
     "start": "webpack-dev-server --open --mode production"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "Earthquake",
+    "Terremoto",
+    "Sismo",
+    "Temblor",
+    "React",
+    "Styled Component"
+  ],
+  "author": "Matthew Rosell <matthew.rosell.felix@gmail.com>",
+  "license": "MIT",
   "dependencies": {
-    "@reach/router": "^1.2.1",
     "@react-google-maps/api": "^1.8.2",
     "dotenv-webpack": "^1.7.0",
     "react": "^16.12.0",

@@ -28,4 +28,12 @@ export const Container = styled.div`
   ::-webkit-scrollbar-thumb:hover {
     background: #555;
   }
+
+  p {
+    font-size: 12px;
+    /* border: 1px solid red; */
+    text-align: center;
+    margin-top: 10px;
+    font-family: "Roboto Mono", monospace;
+  }
 `;

@@ -1,10 +1,16 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   border-radius: 10px;
   padding: 20px;
-  margin: 10px;
-  box-shadow: 1px 3px 17px -2px rgba(0, 0, 0, 0.75);
+
+  cursor: pointer;
+  ${props =>
+    props.border &&
+    css`
+      margin: 10px;
+      box-shadow: 1px 3px 17px -2px rgba(0, 0, 0, 0.75);
+    `}
 
   div {
     margin-top: 5px;

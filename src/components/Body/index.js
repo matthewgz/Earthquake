@@ -1,16 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
 import { List } from "../List";
 import { Map } from "../Map";
+import { Loader } from "../Loader";
 import { Container } from "./styles";
 import { Context } from "../../Context";
 
 const { REACT_APP_LINK_API } = process.env;
 
 export const Body = () => {
-  const { init, fin, minMagnitude } = useContext(Context);
+  const { init, fin, minMagnitude, setOnClick } = useContext(Context);
   const [state, setState] = useState({
     data: {},
     loading: true,
+    listLoading: true,
     error: undefined
   });
 
@@ -24,28 +26,34 @@ export const Body = () => {
       URL = URL + `&endtime=${fin.value}` + "T23:59:59";
     }
     if (init.value && fin.value) {
-      // setState({ data: {}, loading: true, error: undefined });
+      setState({ ...state, listLoading: true, error: undefined });
+      setOnClick(false);
       // console.log(URL);
       fetch(URL)
         .then(function(response) {
           return response.json();
         })
         .then(function(data) {
-          setState({ data, loading: false, error: undefined });
+          setState({
+            data,
+            loading: false,
+            listLoading: false,
+            error: undefined
+          });
         })
         .catch(e => {
-          setState({ data: {}, loading: false, error: e });
+          setState({ data: {}, loading: false, listLoading: false, error: e });
         });
       return () => {};
     }
   }, [init, fin, minMagnitude]);
 
-  if (state.loading) return "Loading";
+  if (state.loading) return <Loader fullHeight />;
   if (state.error) return "Error";
 
   return (
     <Container>
-      <List array={state.data.features} />
+      <List array={state.data.features} loading={state.listLoading} />
       <Map array={state.data.features} />
     </Container>
   );
