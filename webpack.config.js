@@ -19,9 +19,14 @@ module.exports = {
   optimization: {
     minimizer: [new TersetJSPlugin()]
   },
+  externals: {
+    react: "react",
+    "react-dom": "react-dom",
+    "styled-components": "styled-components"
+  },
   resolve: {
     alias: {
-      "styled-components": require.resolve("styled-components")
+      "styled-components": path.resolve("./node_modules/styled-components")
     }
   },
   module: {

@@ -7,9 +7,14 @@ module.exports = {
     modules: ["react", "react-dom", "styled-components"]
   },
   mode: "production",
+  externals: {
+    react: "react",
+    "react-dom": "react-dom",
+    "styled-components": "styled-components"
+  },
   resolve: {
     alias: {
-      "styled-components": require.resolve("styled-components")
+      "styled-components": path.resolve("./node_modules/styled-components")
     }
   },
   optimization: {
