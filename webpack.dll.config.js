@@ -4,7 +4,7 @@ const TersetJSPlugin = require("terser-webpack-plugin");
 
 module.exports = {
   entry: {
-    modules: ["react", "react-dom"]
+    modules: ["react", "react-dom", "styled-components"]
   },
   mode: "production",
   optimization: {
