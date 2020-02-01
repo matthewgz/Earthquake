@@ -5,7 +5,8 @@ import { Loader } from "../Loader";
 import { Container } from "./styles";
 import { Context } from "../../Context";
 
-const { REACT_APP_LINK_API } = process.env;
+const REACT_APP_LINK_API =
+  "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson";
 
 export const Body = () => {
   const { init, fin, minMagnitude, setOnClick } = useContext(Context);
